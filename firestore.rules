@@ -27,6 +27,7 @@ service cloud.firestore {
         data.eventType is string && (data.eventType in [
           'page_view',
           'step_view',
+          'brand_selected',
           'gender_selected',
           'size_selected',
           'product_viewed',

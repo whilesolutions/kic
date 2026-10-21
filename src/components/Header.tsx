@@ -49,8 +49,8 @@ export const Header: React.FC<HeaderProps> = ({
     return () => clearInterval(interval);
   }, [campaign.fecha_cierre]);
 
-  const displayStep = Math.min(step, 3);
-  const progressPercent = (displayStep / 3) * 100;
+  const displayStep = Math.min(step, 4);
+  const progressPercent = (displayStep / 4) * 100;
   const accentColor = campaign.tema?.accentColor || '#EAB308';
 
   return (
@@ -134,14 +134,15 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
 
-        {/* Step Progress Bar ("Paso X de 3") */}
+        {/* Step Progress Bar ("Paso X de 4") */}
         <div className="mt-3">
           <div className="flex justify-between items-center text-[11px] font-bold text-zinc-500 dark:text-zinc-400 mb-1">
-            <span>PASO {displayStep} DE 3</span>
+            <span>PASO {displayStep} DE 4</span>
             <span>
-              {displayStep === 1 && 'Selecciona tu género'}
-              {displayStep === 2 && 'Elige tu talla'}
-              {displayStep === 3 && 'Selecciona tu modelo'}
+              {displayStep === 1 && 'Promo o Marca'}
+              {displayStep === 2 && 'Para quién'}
+              {displayStep === 3 && 'Tu talla'}
+              {displayStep === 4 && 'Tu modelo'}
             </span>
           </div>
           <div className="w-full h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">

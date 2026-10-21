@@ -1,20 +1,40 @@
 import React from 'react';
-import { User, Sparkles } from 'lucide-react';
+import { User, Sparkles, ArrowLeft } from 'lucide-react';
 import { Gender } from '../types';
 
 interface Step1GenderProps {
   selectedGender: Gender | null;
   onSelectGender: (gender: Gender) => void;
+  onBack: () => void;
+  selectedBrand: string;
   accentColor: string;
 }
 
 export const Step1Gender: React.FC<Step1GenderProps> = ({
   selectedGender,
   onSelectGender,
+  onBack,
+  selectedBrand,
   accentColor,
 }) => {
   return (
-    <div className="w-full max-w-md mx-auto px-4 py-6 flex flex-col justify-center animate-fade-in">
+    <div className="w-full max-w-md mx-auto px-4 py-4 flex flex-col justify-center animate-fade-in">
+      {/* Back button & Brand badge */}
+      <div className="flex items-center justify-between mb-4">
+        <button
+          type="button"
+          onClick={onBack}
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white px-2.5 py-1.5 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-800 transition-colors"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Cambiar marca / promo</span>
+        </button>
+
+        <span className="text-[11px] font-extrabold uppercase px-2 py-0.5 rounded bg-yellow-100 text-yellow-900 dark:bg-yellow-950/60 dark:text-yellow-300 border border-yellow-300/60">
+          {selectedBrand === 'all' ? 'Todas las marcas' : selectedBrand}
+        </span>
+      </div>
+
       <div className="text-center mb-6">
         <h2 className="text-2xl font-black text-zinc-900 dark:text-white tracking-tight">
           ¿Para quién buscas calzado?

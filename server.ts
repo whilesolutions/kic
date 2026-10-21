@@ -487,6 +487,7 @@ app.post('/api/events', rateLimiter, async (req: Request, res: Response): Promis
   const allowedEventTypes = [
     'page_view',
     'step_view',
+    'brand_selected',
     'gender_selected',
     'size_selected',
     'product_viewed',

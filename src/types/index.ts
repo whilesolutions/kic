@@ -2,6 +2,8 @@ export type Gender = 'caballero' | 'dama';
 
 export type Zone = 'ccs' | 'int';
 
+export type Brand = 'all' | 'Nike' | 'Jordan' | 'New Balance' | 'Adidas' | 'Yeezy';
+
 export interface CampaignTheme {
   accentColor: string; // Hex color code
   accentHover: string;
@@ -33,6 +35,7 @@ export interface ProductVariant {
 export interface Product {
   id: string;
   title: string;
+  brand: Brand | string;
   handle: string;
   description: string;
   imageUrl: string;
@@ -46,6 +49,7 @@ export interface Product {
 export type EventType =
   | 'page_view'
   | 'step_view'
+  | 'brand_selected'
   | 'gender_selected'
   | 'size_selected'
   | 'product_viewed'

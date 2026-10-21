@@ -1,9 +1,11 @@
 import { Product } from '../types';
 
 export const INITIAL_PRODUCTS: Product[] = [
+  // NIKE
   {
     id: 'prod_dunk_panda',
     title: 'Nike Dunk Low Retro "Panda"',
+    brand: 'Nike',
     handle: 'nike-dunk-low-retro-black-white-panda',
     description: 'El clásico indiscutible. Cuero premium bicolor blanco y negro con amortiguación suave.',
     imageUrl: 'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=900&q=80',
@@ -23,8 +25,31 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
   },
   {
+    id: 'prod_dunk_rose_whisper',
+    title: 'Nike Dunk Low "Rose Whisper" (W)',
+    brand: 'Nike',
+    handle: 'nike-dunk-low-rose-whisper-w',
+    description: 'Tonalidad rosa pastel suave combinada con blanco tiza. Espectacular para cualquier outfit.',
+    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
+    price: 79,
+    compareAtPrice: 95,
+    genders: ['dama'],
+    availableSizes: ['US 5.5', 'US 6', 'US 6.5', 'US 7', 'US 7.5', 'US 8'],
+    variants: [
+      { id: '4481028001', title: 'US 5.5 / EU 36', size: 'US 5.5', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
+      { id: '4481028002', title: 'US 6 / EU 36.5', size: 'US 6', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
+      { id: '4481028003', title: 'US 6.5 / EU 37.5', size: 'US 6.5', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
+      { id: '4481028004', title: 'US 7 / EU 38', size: 'US 7', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
+      { id: '4481028005', title: 'US 7.5 / EU 38.5', size: 'US 7.5', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
+      { id: '4481028006', title: 'US 8 / EU 39', size: 'US 8', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
+    ],
+  },
+
+  // AIR JORDAN
+  {
     id: 'prod_jordan_1_chicago',
     title: 'Air Jordan 1 High "Chicago"',
+    brand: 'Jordan',
     handle: 'air-jordan-1-retro-high-og-chicago',
     description: 'La silueta más icónica del básquetbol y streetwear mundial en sus colores legendarios.',
     imageUrl: 'https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80',
@@ -44,8 +69,31 @@ export const INITIAL_PRODUCTS: Product[] = [
     ],
   },
   {
+    id: 'prod_jordan_4_military',
+    title: 'Air Jordan 4 Retro "Military Black"',
+    brand: 'Jordan',
+    handle: 'air-jordan-4-retro-military-black',
+    description: 'Silueta robusta, alas de ajuste características y unidad Air-Sole visible en el talón.',
+    imageUrl: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=900&q=80',
+    price: 99,
+    compareAtPrice: 125,
+    genders: ['caballero'],
+    availableSizes: ['US 8', 'US 8.5', 'US 9', 'US 9.5', 'US 10', 'US 11'],
+    variants: [
+      { id: '4481027001', title: 'US 8 / EU 41', size: 'US 8', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
+      { id: '4481027002', title: 'US 8.5 / EU 42', size: 'US 8.5', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
+      { id: '4481027003', title: 'US 9 / EU 42.5', size: 'US 9', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
+      { id: '4481027004', title: 'US 9.5 / EU 43', size: 'US 9.5', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
+      { id: '4481027005', title: 'US 10 / EU 44', size: 'US 10', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
+      { id: '4481027006', title: 'US 11 / EU 45', size: 'US 11', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
+    ],
+  },
+
+  // NEW BALANCE
+  {
     id: 'prod_nb_550',
     title: 'New Balance 550 "White Green"',
+    brand: 'New Balance',
     handle: 'new-balance-550-white-green',
     description: 'Estética retro vintage noventera en cuero microperforado de alta resistencia.',
     imageUrl: 'https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=900&q=80',
@@ -64,9 +112,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       { id: '4481025008', title: 'US 10 / EU 44', size: 'US 10', availableForSale: true, price: 75, compareAtPrice: 95, gender: 'caballero' },
     ],
   },
+
+  // ADIDAS
   {
     id: 'prod_adidas_samba',
     title: 'Adidas Originals Samba OG "White"',
+    brand: 'Adidas',
     handle: 'adidas-originals-samba-og-cloud-white',
     description: 'El par tendencia mundial. Gamuza en puntera T-toe y suela de goma caramelo clásica.',
     imageUrl: 'https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=900&q=80',
@@ -84,47 +135,12 @@ export const INITIAL_PRODUCTS: Product[] = [
       { id: '4481026007', title: 'US 10 / EU 44', size: 'US 10', availableForSale: true, price: 79, compareAtPrice: 90, gender: 'caballero' },
     ],
   },
-  {
-    id: 'prod_jordan_4_military',
-    title: 'Air Jordan 4 Retro "Military Black"',
-    handle: 'air-jordan-4-retro-military-black',
-    description: 'Silueta robusta, alas de ajuste características y unidad Air-Sole visible en el talón.',
-    imageUrl: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=900&q=80',
-    price: 99,
-    compareAtPrice: 125,
-    genders: ['caballero'],
-    availableSizes: ['US 8', 'US 8.5', 'US 9', 'US 9.5', 'US 10', 'US 11'],
-    variants: [
-      { id: '4481027001', title: 'US 8 / EU 41', size: 'US 8', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
-      { id: '4481027002', title: 'US 8.5 / EU 42', size: 'US 8.5', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
-      { id: '4481027003', title: 'US 9 / EU 42.5', size: 'US 9', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
-      { id: '4481027004', title: 'US 9.5 / EU 43', size: 'US 9.5', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
-      { id: '4481027005', title: 'US 10 / EU 44', size: 'US 10', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
-      { id: '4481027006', title: 'US 11 / EU 45', size: 'US 11', availableForSale: true, price: 99, compareAtPrice: 125, gender: 'caballero' },
-    ],
-  },
-  {
-    id: 'prod_dunk_rose_whisper',
-    title: 'Nike Dunk Low "Rose Whisper" (W)',
-    handle: 'nike-dunk-low-rose-whisper-w',
-    description: 'Tonalidad rosa pastel suave combinada con blanco tiza. Espectacular para cualquier outfit.',
-    imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
-    price: 79,
-    compareAtPrice: 95,
-    genders: ['dama'],
-    availableSizes: ['US 5.5', 'US 6', 'US 6.5', 'US 7', 'US 7.5', 'US 8'],
-    variants: [
-      { id: '4481028001', title: 'US 5.5 / EU 36', size: 'US 5.5', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
-      { id: '4481028002', title: 'US 6 / EU 36.5', size: 'US 6', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
-      { id: '4481028003', title: 'US 6.5 / EU 37.5', size: 'US 6.5', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
-      { id: '4481028004', title: 'US 7 / EU 38', size: 'US 7', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
-      { id: '4481028005', title: 'US 7.5 / EU 38.5', size: 'US 7.5', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
-      { id: '4481028006', title: 'US 8 / EU 39', size: 'US 8', availableForSale: true, price: 79, compareAtPrice: 95, gender: 'dama' },
-    ],
-  },
+
+  // YEEZY
   {
     id: 'prod_yeezy_slide_onyx',
     title: 'Yeezy Slide "Onyx"',
+    brand: 'Yeezy',
     handle: 'yeezy-slide-onyx',
     description: 'Espuma EVA moldeada de máxima amortiguación. La silueta más cómoda del mercado.',
     imageUrl: 'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=900&q=80',
