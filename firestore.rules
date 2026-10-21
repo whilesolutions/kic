@@ -1,0 +1,56 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Global Safety Net: Deny everything by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // 2. Helper Primitives
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    // Strict validation for incoming anonymous events
+    function isValidEvent(data) {
+      return data.keys().hasAll(['sessionId', 'campaign', 'zone', 'eventType']) &&
+        data.keys().hasOnly(['sessionId', 'campaign', 'zone', 'eventType', 'device', 'details', 'createdAt']) &&
+        data.sessionId is string && data.sessionId.size() >= 4 && data.sessionId.size() <= 64 &&
+        data.campaign is string && data.campaign.size() <= 64 &&
+        data.zone is string && (data.zone in ['ccs', 'int', 'unknown']) &&
+        data.eventType is string && (data.eventType in [
+          'page_view',
+          'step_view',
+          'gender_selected',
+          'size_selected',
+          'product_viewed',
+          'product_click',
+          'whatsapp_click',
+          'no_stock_seen',
+          'scroll_depth',
+          'rage_click'
+        ]) &&
+        (!('device' in data) || data.device is map) &&
+        (!('details' in data) || data.details is map);
+    }
+
+    // 3. Campaigns collection (Public Read, Write Denied)
+    match /campaigns/{campaignId} {
+      allow get: if isValidId(campaignId);
+      allow list: if true;
+      allow write: if false;
+    }
+
+    // 4. Events collection (Anonymous Write-Only, Read/Update/Delete Denied)
+    match /events/{eventId} {
+      allow create: if isValidId(eventId) && isValidEvent(incoming());
+      allow get, list, update, delete: if false;
+    }
+  }
+}

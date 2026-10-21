@@ -1,0 +1,120 @@
+{
+  "entities": {
+    "Campaign": {
+      "title": "Campaign",
+      "description": "Configuración de campaña promocional de Kicks Online para tráfico desde Instagram",
+      "type": "object",
+      "properties": {
+        "titular": {
+          "type": "string",
+          "description": "Titular principal del gancho de la campaña",
+          "maxLength": 120
+        },
+        "subtitulo": {
+          "type": "string",
+          "description": "Subtítulo descriptivo de la campaña",
+          "maxLength": 240
+        },
+        "etiqueta_precio": {
+          "type": "string",
+          "description": "Etiqueta visual del precio promocional, ej. $79 (antes $99)",
+          "maxLength": 60
+        },
+        "handle": {
+          "type": "string",
+          "description": "Handle de la colección en Shopify (kicksvenezuela.com)",
+          "maxLength": 100,
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "fecha_cierre": {
+          "type": "string",
+          "description": "Fecha y hora ISO de cierre de oferta para el contador",
+          "maxLength": 60
+        },
+        "mostrar_whatsapp": {
+          "type": "boolean",
+          "description": "Indica si se habilita el botón de pedido directo por WhatsApp"
+        },
+        "tema": {
+          "type": "object",
+          "description": "Esquema de colores de acento para la campaña"
+        }
+      },
+      "required": [
+        "titular",
+        "subtitulo",
+        "etiqueta_precio",
+        "handle",
+        "mostrar_whatsapp"
+      ]
+    },
+    "Event": {
+      "title": "Event",
+      "description": "Evento anónimo de telemetría y embudo sin datos personales (PII)",
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "description": "Identificador anónimo único de sesión generado en el cliente",
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_-]+$"
+        },
+        "campaign": {
+          "type": "string",
+          "description": "Parámetro c de la campaña de procedencia",
+          "maxLength": 64
+        },
+        "zone": {
+          "type": "string",
+          "description": "Zona geográfica de entrega: ccs (Caracas) o int (Interior)",
+          "maxLength": 32,
+          "enum": ["ccs", "int", "unknown"]
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Tipo de evento medido en el embudo",
+          "enum": [
+            "page_view",
+            "step_view",
+            "gender_selected",
+            "size_selected",
+            "product_viewed",
+            "product_click",
+            "whatsapp_click",
+            "no_stock_seen",
+            "scroll_depth",
+            "rage_click"
+          ]
+        },
+        "device": {
+          "type": "object",
+          "description": "Información no identificable del dispositivo"
+        },
+        "details": {
+          "type": "object",
+          "description": "Metadatos asociados al paso o interacción actual"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Marca de tiempo del servidor"
+        }
+      },
+      "required": [
+        "sessionId",
+        "campaign",
+        "zone",
+        "eventType"
+      ]
+    }
+  },
+  "firestore": {
+    "/campaigns/{campaignId}": {
+      "schema": "Campaign",
+      "description": "Documentos de configuración de campaña accesibles en modo lectura para el cliente"
+    },
+    "/events/{eventId}": {
+      "schema": "Event",
+      "description": "Registro de eventos anónimos de interacción y conversión"
+    }
+  }
+}

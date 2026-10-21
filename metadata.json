@@ -1,0 +1,6 @@
+{
+  "name": "Kicks Online - Compra Rápida",
+  "description": "Experiencia móvil ultrarrápida en 3 pasos para descubrir y comprar calzado exclusivo en Kicks Online Venezuela.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
